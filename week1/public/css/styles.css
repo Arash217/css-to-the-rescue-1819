@@ -1,38 +1,62 @@
-@font-face {
-    font-family: 'Silent';
-    src: url('../fonts/Silent.ttf') format('truetype');
+* {
+    margin: 0;
+    padding: 0;
 }
 
-html, body{
-    padding: 0;
-    margin: 0;
-    font-family: 'Open Sans', sans-serif;
+:root {
+    --main-color: #333333;
+    --secondary-color: #d9d9d9;
+}
+
+@font-face {
+    font-family: 'TulpenOne';
+    src: url('../fonts/TulpenOne-regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Abel';
+    src: url('../fonts/Abel-regular.ttf') format('truetype');
 }
 
 header > h1, header > h1 ~ p {
-    background-color: red;
+    font-family: 'TulpenOne', serif;
+    /*background-color: red;*/
     text-align: center;
 }
 
+header > h1 {
+    font-size: 62px;
+}
+
+header > h1 ~ p {
+    font-size: 32px;
+}
+
 body {
-    color: #FFF;
-    background-color: #2F2F2F;
+    color: var(--secondary-color);
+    background-color: var(--main-color);
+    font-family: 'Abel', serif;
 }
 
 main {
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr) );
+    grid-gap: 50px;
 }
 
 section {
     background-color: blue;
-    margin: 10px;
+    padding: 25px;
 }
 
 section > article{
-    background-color: green;
+    /*background-color: green;*/
+    text-align: center;
 }
 
 section > header > h2{
-    background-color: purple;
+    /*background-color: purple;*/
+    font-family: 'TulpenOne', serif;
+    font-size: 40px;
+    text-align: center;
 }

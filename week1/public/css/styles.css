@@ -40,21 +40,52 @@ body {
 
 main {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr) );
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
     grid-gap: 50px;
 }
 
 section {
-    background-color: blue;
+    /*background-color: blue;*/
     padding: 25px;
 }
 
-section > article{
+section > article {
     /*background-color: green;*/
-    text-align: center;
+    margin: 10px;
 }
 
-section > header > h2{
+section > article > span {
+    border-bottom: 2px dotted #fff;
+}
+
+section > article > p {
+
+}
+
+section > article > div {
+    display: flex;
+    justify-content: space-between;
+}
+
+section > article > div > span{
+    border-bottom: 1px dotted #fff;
+    flex-grow: 1;
+    margin: 0 5px 5px 5px;
+}
+
+section > article > div > div{
+    justify-content: right;
+}
+
+section > article > div > div:before {
+    content: '\20AC';
+}
+
+section > article > div > div:after {
+    content: '.00';
+}
+
+section > header > h2 {
     /*background-color: purple;*/
     font-family: 'TulpenOne', serif;
     font-size: 40px;

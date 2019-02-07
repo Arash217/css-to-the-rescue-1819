@@ -18,18 +18,18 @@
     src: url('../fonts/Abel-regular.ttf') format('truetype');
 }
 
-header > h1, header > h1 ~ p {
-    font-family: 'TulpenOne', serif;
+header > h1, header > p {
     /*background-color: red;*/
+    font-family: 'TulpenOne', serif;
     text-align: center;
 }
 
 header > h1 {
-    font-size: 62px;
+    font-size: 4em;
 }
 
-header > h1 ~ p {
-    font-size: 32px;
+header > p {
+    font-size: 2em;
 }
 
 body {
@@ -40,7 +40,7 @@ body {
 
 main {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    grid-template-columns: 1fr 1fr;
     grid-gap: 50px;
 }
 
@@ -54,40 +54,31 @@ section > article {
     margin: 10px;
 }
 
-section > article > span {
-    border-bottom: 2px dotted #fff;
-}
-
-section > article > p {
-
+section > header > h2 {
+    /*background-color: purple;*/
+    font-family: 'TulpenOne', serif;
+    font-size: 2.5em;
+    text-align: center;
 }
 
 section > article > div {
     display: flex;
-    justify-content: space-between;
 }
 
-section > article > div > span{
-    border-bottom: 1px dotted #fff;
+section > article > div > :nth-child(2) {
+    border-bottom: 1px dotted var(--secondary-color);
     flex-grow: 1;
     margin: 0 5px 5px 5px;
 }
 
-section > article > div > div{
+section > article > div > :nth-child(3) {
     justify-content: right;
 }
 
-section > article > div > div:before {
+section > article > div > :nth-child(3):before {
     content: '\20AC';
 }
 
-section > article > div > div:after {
+section > article > div > :nth-child(3):after {
     content: '.00';
-}
-
-section > header > h2 {
-    /*background-color: purple;*/
-    font-family: 'TulpenOne', serif;
-    font-size: 40px;
-    text-align: center;
 }

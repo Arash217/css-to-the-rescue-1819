@@ -40,7 +40,7 @@ body {
 
 main {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
     grid-gap: 3em;
 }
 
@@ -52,6 +52,33 @@ section {
 section > article {
     /*background-color: green;*/
     margin: 1em;
+}
+
+section > header {
+    height: 75px;
+    width: 200px;
+    margin: auto;
+    position: relative;
+}
+
+section > header:before, section > header:after {
+    content: '';
+    z-index: -1;
+    background-color: var(--secondary-color);
+    position: absolute;
+    width: 100px;
+    height: 50px;
+    top: 0;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%, 20% 50%, 0% 0%);
+}
+
+section > header:before {
+    left: -5em;
+}
+
+section > header:after {
+    transform: rotate(180deg);
+    right: -5em;
 }
 
 section > header > h2 {

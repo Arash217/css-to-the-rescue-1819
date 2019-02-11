@@ -5,8 +5,8 @@
 }
 
 :root {
-    --main-color: #333333;
-    --secondary-color: #d9d9d9;
+    --main-color: 51, 51, 51;
+    --secondary-color: 217, 217, 217;
 }
 
 @font-face {
@@ -21,7 +21,6 @@
 
 header > h1,
 header > p {
-    /*background-color: red;*/
     font-family: 'TulpenOne', serif;
     text-align: center;
 }
@@ -35,8 +34,8 @@ header > p {
 }
 
 body {
-    color: var(--secondary-color);
-    background-color: var(--main-color);
+    color: rgb(var(--secondary-color));
+    background-color: rgb(var(--main-color));
     font-family: 'Abel', serif;
 }
 
@@ -44,61 +43,61 @@ main {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
     grid-gap: 3em;
-}
-
-section {
-    /*background-color: blue;*/
     padding: 1.5em;
 }
 
+section {
+    padding: 1.5em;
+    border: 1px solid rgb(var(--secondary-color));
+}
+
 section > article {
-    /*background-color: green;*/
     margin: 1em;
 }
 
 section > header {
-    height: 85px;
-    width: 200px;
-    margin: 0 auto;
+    height: 75px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5em;
 }
 
 section > header > div {
     height: 50px;
     width: 200px;
-    background-color: var(--secondary-color);
-    /*display: flex;*/
-    /*margin: 4em auto; !* fixen met flexbox? *!*/
-    /*align-items: center;*/
+    background-color: rgb(var(--secondary-color));
+    display: flex;
+    justify-content: center;
     position: absolute;
-    text-align: center;
 }
 
 section > header > div:before,
 section > header > div:after {
     content: '';
     z-index: -1;
-    background-color: var(--secondary-color);
-    width: 100px;
+    background-color: rgb(var(--secondary-color));
+    width: 75px;
     height: 50px;
     clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%, 20% 50%, 0% 0%);
     position: absolute;
-    bottom: -2em;
+    bottom: -25px;
 }
 
 section > header > div:before {
-    left: -4.3em;
+    left: -50px;
 }
 
 section > header > div:after {
     transform: rotate(180deg);
-    right: -4.3em;
+    right: -50px;
 }
 
 section > header > div > h2 {
-    /*background-color: purple;*/
     font-family: 'TulpenOne', serif;
     font-size: 2.5em;
-    color: var(--main-color);
+    color: rgb(var(--main-color));
+    display: flex;
+    align-items: center;
     height: 100%;
 }
 
@@ -106,10 +105,11 @@ section > header > div > h2:before,
 section > header > div > h2:after {
     content: '';
     position: absolute;
-    width: 32px;
-    height: 32px;
-    background-color: var(--main-color);
-    bottom: -32px;
+    width: 25px;
+    height: 25px;
+    background-color: rgba(var(--main-color), 0.5);
+    background-blend-mode: multiply;
+    bottom: -25px;
     clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 0%);
 }
 
@@ -127,7 +127,7 @@ section > article > div {
 }
 
 section > article > div > :nth-child(2) {
-    border-bottom: 0.05em dotted var(--secondary-color);
+    border-bottom: 0.05em dotted rgb(var(--secondary-color));
     flex-grow: 1;
     margin: 0 0.3em 0.3em 0.3em;
 }

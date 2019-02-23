@@ -5,10 +5,6 @@
 }
 
 :root {
-    --main-color-h: 8;
-    --main-color-s: 97%;
-    --main-color-l: 65%;
-
     --main-color: hsl(8, 97%, 65%);
 }
 
@@ -40,7 +36,7 @@ header > h1 {
 header > p {
     font-size: 2em;
     filter: brightness(0%);
-    opacity: 0.6;
+    opacity: 0.8;
 }
 
 header > h1 > span:nth-child(odd) {
@@ -134,10 +130,12 @@ section > header > div:after {
 section > header > div > h2 {
     font-family: 'TulpenOne', serif;
     font-size: 2.5em;
-    display: flex;
     align-items: center;
-    height: 100%;
-    color: hsl(var(--main-color-h), var(--main-color-s), 100%);
+    display: flex;
+}
+
+section > header > div > h2 > strong {
+    filter: brightness(1000%);
 }
 
 section > header > div > h2:before,
@@ -146,7 +144,8 @@ section > header > div > h2:after {
     position: absolute;
     width: 25px;
     height: 25px;
-    background-color: hsla(var(--main-color-h), var(--main-color-s), 0%, 0.5);
+    background-color: var(--main-color);
+    filter: brightness(50%);
     bottom: -25px;
     clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 0%);
 }
@@ -162,10 +161,12 @@ section > header > div > h2:after {
 
 section > article > div {
     display: flex;
+    filter: brightness(0);
+    opacity: 0.8;
 }
 
 section > article > div > :nth-child(2) {
-    border-bottom: 0.05em dotted hsl(var(--main-color-h), var(--main-color-s), 0%);
+    border-bottom: 0.05em dotted var(--main-color);
     flex-grow: 1;
     margin: 0 0.3em 0.3em 0.3em;
 }

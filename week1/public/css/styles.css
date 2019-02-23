@@ -8,6 +8,8 @@
     --main-color-h: 8;
     --main-color-s: 97%;
     --main-color-l: 65%;
+
+    --main-color: hsl(8, 97%, 65%);
 }
 
 @font-face {
@@ -18,6 +20,11 @@
 @font-face {
     font-family: 'Abel';
     src: url('../fonts/Abel-regular.ttf') format('truetype');
+}
+
+body {
+    font-family: 'Abel', serif;
+    color: var(--main-color);
 }
 
 header > h1,
@@ -32,15 +39,12 @@ header > h1 {
 
 header > p {
     font-size: 2em;
+    filter: brightness(0%);
+    opacity: 0.6;
 }
 
-header > h1 > span:nth-child(2) {
-    color: hsl(var(--main-color-h), var(--main-color-s), var(--main-color-l));
-}
-
-body {
-    font-family: 'Abel', serif;
-    color: hsl(var(--main-color-h), var(--main-color-s), 0%);
+header > h1 > span:nth-child(odd) {
+    filter: brightness(0);
 }
 
 main {
@@ -52,7 +56,7 @@ main {
 
 section {
     padding: 1.5em;
-    border: 2px dotted hsla(var(--main-color-h), var(--main-color-s), 0%, .3);
+    border: 2px dotted var(--main-color);
 }
 
 @keyframes animated-article {
@@ -66,7 +70,7 @@ section {
 
 section > article {
     margin: 1em;
-    animation-name: animated-article;
+    /*animation-name: animated-article;*/
     animation-duration: 4s;
     animation-iteration-count: infinite;
     animation-direction: alternate;
@@ -84,10 +88,6 @@ section > article:nth-child(5n+3) {
     animation-delay: 3s;
 }
 
-section > article > h3 {
-    color: hsl(var(--main-color-h), var(--main-color-s), var(--main-color-l));
-}
-
 section > article > h3:first-letter,
 section > article > div > p:first-letter {
     text-transform: uppercase;
@@ -103,7 +103,7 @@ section > header {
 section > header > div {
     height: 50px;
     width: 200px;
-    background-color: hsl(var(--main-color-h), var(--main-color-s), var(--main-color-l));
+    background-color: var(--main-color);
     display: flex;
     justify-content: center;
     position: absolute;
@@ -113,7 +113,7 @@ section > header > div:before,
 section > header > div:after {
     content: '';
     z-index: -1;
-    background-color: hsl(var(--main-color-h), var(--main-color-s), var(--main-color-l));
+    background-color: var(--main-color);
     width: 75px;
     height: 50px;
     clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%, 20% 50%, 0% 0%);

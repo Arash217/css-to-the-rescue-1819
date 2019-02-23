@@ -55,14 +55,14 @@ section {
     border: 2px dotted hsla(var(--main-color-h), var(--main-color-s), 0%, .3);
 }
 
-/*@keyframes animated-article {*/
-/*from {*/
-/*transform: translate(0, 0px);*/
-/*}*/
-/*to {*/
-/*transform: translate(0, 15px);*/
-/*}*/
-/*}*/
+@keyframes animated-article {
+    from {
+        transform: translate(0, 0px);
+    }
+    to {
+        transform: translate(0, 15px);
+    }
+}
 
 section > article {
     margin: 1em;

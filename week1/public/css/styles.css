@@ -188,6 +188,36 @@ section header div h2:after {
     right: 0;
 }
 
+/* Waving ribbon animation */
+section > header > div,
+section > header > div:before,
+section > header > div:after {
+    background-image: linear-gradient(70deg,
+    hsla(var(--main-color), 1) 25%,
+    hsla(var(--secondary-color), .3) 50%,
+    hsla(var(--main-color), 1) 55%);
+    background-size: 200%;
+    background-position: right;
+    /*animation-name: ribbon-wave;*/
+    animation-duration: 20s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+section > header > div:after {
+    animation-direction: reverse;
+}
+
+@-webkit-keyframes ribbon-wave {
+    0% {
+        background-position: -400px 0, -400px 0, -400px 0, -400px 0;
+    }
+
+    100% {
+        background-position: 800px 0, 800px 0, 800px 0, 800px 0;
+    }
+}
+
 /* Dish */
 section article {
     margin: 1em;

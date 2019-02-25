@@ -22,6 +22,17 @@
 body {
     font-family: 'Abel', serif;
     color: var(--secondary-color);
+    position: relative;
+}
+
+/* Custom white background without body */
+body > div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: hsl(var(--secondary-color));
+    filter: invert(100%);
+    z-index: -999;
 }
 
 header h1,
@@ -30,15 +41,18 @@ header p {
     text-align: center;
 }
 
-header h1 {
-    font-size: 4em;
-}
-
+/* Company name */
 header p {
     font-size: 2em;
     opacity: 0.8;
 }
 
+/* Company slogan */
+header h1 {
+    font-size: 4em;
+}
+
+/* Ampersand */
 header h1 span:nth-child(2) {
     color: hsl(var(--main-color));
 }
@@ -52,45 +66,29 @@ main {
     margin: auto;
 }
 
+/* Menu */
 section {
     padding: 1.5em;
     position: relative;
 }
 
-section:before,
-section:after {
-    content: '';
-    opacity: .5;
-    position: absolute;
+section svg {
     width: 100%;
     height: 100%;
-    border: 2px solid hsla(var(--secondary-color), .4);
-    clip-path: polygon(
-            40px 0,
-            calc(100% - 40px) 0,
-            calc(100% - 40px) 40px,
-            100% 40px,
-            100% calc(100% - 40px),
-            calc(100% - 40px) calc(100% - 40px),
-            calc(100% - 40px) 100%,
-            40px 100%,
-            40px calc(100% - 40px),
-            0 calc(100% - 40px),
-            0 40px,
-            40px 40px,
-            40px 0
-    );
-    top: 0;
+    position: absolute;
     left: 0;
+    top: 0;
 }
 
-section:before {
-    z-index: -2;
-}
-
-section:after {
-    z-index: -1;
-    transform: scale(1.01);
+section svg polygon {
+    fill: transparent;
+    stroke: hsla(var(--secondary-color), .2);
+    stroke-width: .5;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
 }
 
 @keyframes article-wave {
@@ -119,31 +117,7 @@ section:after {
     }
 }
 
-section article {
-    margin: 1em;
-    /*animation-name: article-wave;*/
-    animation-duration: 4s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-}
-
-section article:nth-child(2n+1) {
-    animation-delay: 1s;
-}
-
-section article:nth-child(3n+2) {
-    animation-delay: 2s;
-}
-
-section article:nth-child(5n+3) {
-    animation-delay: 3s;
-}
-
-section > article > h3:first-letter,
-section > article > div > p:first-letter {
-    text-transform: uppercase;
-}
-
+/* Ribbon */
 section header {
     height: 75px;
     display: flex;
@@ -214,14 +188,42 @@ section header div h2:after {
     right: 0;
 }
 
-section article div {
-    display: flex;
+/* Dish */
+section article {
+    margin: 1em;
+    /*animation-name: article-wave;*/
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
 }
 
+section article:nth-child(2n+1) {
+    animation-delay: 1s;
+}
+
+section article:nth-child(3n+2) {
+    animation-delay: 2s;
+}
+
+section article:nth-child(5n+3) {
+    animation-delay: 3s;
+}
+
+section > article > h3:first-letter,
+section > article > div > p:first-letter {
+    text-transform: uppercase;
+}
+
+/* Dish name */
 section article h3 {
     color: hsl(var(--main-color));
 }
 
+section article div {
+    display: flex;
+}
+
+/* Dish dotted border */
 section article div span:nth-of-type(1) {
     border-bottom: 0.05em dotted hsl(var(--secondary-color));
     flex-grow: 1;
@@ -230,21 +232,23 @@ section article div span:nth-of-type(1) {
     opacity: 0.6;
 }
 
+/* Dish price */
 section article div span:nth-of-type(2) {
     justify-content: right;
     position: relative;
 }
 
+/* Add euro symbol to price */
 section article div span:nth-of-type(2):before {
     content: '€';
 }
 
+/* Add decimals to price */
 section article div span:nth-of-type(2):after {
     content: '.00';
 }
 
-/* Shaky expensive dish */
-
+/* Shaky animation for expensive dish */
 section:nth-of-type(4) article:nth-of-type(7) h3 {
     position: relative;
 }
@@ -255,7 +259,7 @@ section:nth-of-type(4) article:nth-of-type(7) div {
 }
 
 section:nth-of-type(4) article:nth-of-type(7) div span:nth-of-type(1) {
-    border-color:  hsl(var(--main-color));
+    border-color: hsl(var(--main-color));
 }
 
 section:nth-of-type(4) article:nth-of-type(7) div span:nth-of-type(1):before,

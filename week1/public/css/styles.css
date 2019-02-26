@@ -23,16 +23,21 @@ body {
     font-family: 'Abel', serif;
     color: var(--secondary-color);
     position: relative;
+    counter-reset: price;
 }
 
 /* Custom white background without body */
-body > div {
+body > div:nth-of-type(1) {
     position: absolute;
     width: 100%;
     height: 100%;
     background-color: hsl(var(--secondary-color));
     filter: invert(100%);
     z-index: -999;
+}
+
+header {
+    margin-top: 60px;
 }
 
 header h1,
@@ -55,6 +60,7 @@ header h1 {
 /* Ampersand */
 header h1 span:nth-child(2) {
     color: hsl(var(--main-color));
+    position: relative;
 }
 
 main {
@@ -78,6 +84,7 @@ section svg {
     position: absolute;
     left: 0;
     top: 0;
+    z-index: -1;
 }
 
 section svg polygon {
@@ -194,7 +201,7 @@ section > header > div:before,
 section > header > div:after {
     background-image: linear-gradient(70deg,
     hsla(var(--main-color), 1) 25%,
-    hsla(var(--secondary-color), .3) 50%,
+    hsla(var(--secondary-color), .2) 50%,
     hsla(var(--main-color), 1) 55%);
     background-size: 200%;
     background-position: right;
@@ -356,5 +363,213 @@ section:nth-of-type(4) article:nth-of-type(7) div span:nth-of-type(2):after {
 
     100% {
         transform: translate(0);
+    }
+}
+
+/* Menu Noshes prices*/
+section:nth-of-type(1) article:nth-of-type(1) input[type=checkbox]:checked {
+    counter-increment: price 8;
+}
+
+section:nth-of-type(1) article:nth-of-type(2) input[type=checkbox]:checked {
+    counter-increment: price 13;
+}
+
+section:nth-of-type(1) article:nth-of-type(3) input[type=checkbox]:checked {
+    counter-increment: price 13;
+}
+
+section:nth-of-type(1) article:nth-of-type(4) input[type=checkbox]:checked {
+    counter-increment: price 10;
+}
+
+section:nth-of-type(1) article:nth-of-type(5) input[type=checkbox]:checked {
+    counter-increment: price 9;
+}
+
+section:nth-of-type(1) article:nth-of-type(6) input[type=checkbox]:checked {
+    counter-increment: price 10;
+}
+
+section:nth-of-type(1) article:nth-of-type(7) input[type=checkbox]:checked {
+    counter-increment: price 12;
+}
+
+section:nth-of-type(1) article:nth-of-type(8) input[type=checkbox]:checked {
+    counter-increment: price 7;
+}
+
+/* Menu Boards prices*/
+section:nth-of-type(2) article:nth-of-type(1) input[type=checkbox]:checked {
+    counter-increment: price 16;
+}
+
+section:nth-of-type(2) article:nth-of-type(2) input[type=checkbox]:checked {
+    counter-increment: price 22;
+}
+
+section:nth-of-type(2) article:nth-of-type(3) input[type=checkbox]:checked {
+    counter-increment: price 18;
+}
+
+section:nth-of-type(2) article:nth-of-type(4) input[type=checkbox]:checked {
+    counter-increment: price 16;
+}
+
+/* Menu Platters prices*/
+section:nth-of-type(3) article:nth-of-type(1) input[type=checkbox]:checked {
+    counter-increment: price 60;
+}
+
+section:nth-of-type(3) article:nth-of-type(2) input[type=checkbox]:checked {
+    counter-increment: price 80;
+}
+
+section:nth-of-type(3) article:nth-of-type(3) input[type=checkbox]:checked {
+    counter-increment: price 70;
+}
+
+section:nth-of-type(3) article:nth-of-type(4) input[type=checkbox]:checked {
+    counter-increment: price 90;
+}
+
+/* Menu Eggs prices*/
+section:nth-of-type(4) article:nth-of-type(1) input[type=checkbox]:checked {
+    counter-increment: price 15;
+}
+
+section:nth-of-type(4) article:nth-of-type(2) input[type=checkbox]:checked {
+    counter-increment: price 19;
+}
+
+section:nth-of-type(4) article:nth-of-type(3) input[type=checkbox]:checked {
+    counter-increment: price 12;
+}
+
+section:nth-of-type(4) article:nth-of-type(4) input[type=checkbox]:checked {
+    counter-increment: price 16;
+}
+
+section:nth-of-type(4) article:nth-of-type(5) input[type=checkbox]:checked {
+    counter-increment: price 18;
+}
+
+section:nth-of-type(4) article:nth-of-type(6) input[type=checkbox]:checked {
+    counter-increment: price 15;
+}
+
+section:nth-of-type(4) article:nth-of-type(7) input[type=checkbox]:checked {
+    counter-increment: price 180;
+}
+
+/* Menu Soup prices*/
+section:nth-of-type(5) article:nth-of-type(1) input[type=checkbox]:checked {
+    counter-increment: price 8;
+}
+
+section:nth-of-type(5) article:nth-of-type(2) input[type=checkbox]:checked {
+    counter-increment: price 8;
+}
+
+section:nth-of-type(5) article:nth-of-type(3) input[type=checkbox]:checked {
+    counter-increment: price 8;
+}
+
+section:nth-of-type(5) article:nth-of-type(4) input[type=checkbox]:checked {
+    counter-increment: price 10;
+}
+
+/* Menu Salads prices*/
+section:nth-of-type(6) article:nth-of-type(1) input[type=checkbox]:checked {
+    counter-increment: price 9;
+}
+
+section:nth-of-type(6) article:nth-of-type(2) input[type=checkbox]:checked {
+    counter-increment: price 14;
+}
+
+section:nth-of-type(6) article:nth-of-type(3) input[type=checkbox]:checked {
+    counter-increment: price 14;
+}
+
+/* Menu Sweet prices*/
+section:nth-of-type(7) article:nth-of-type(1) input[type=checkbox]:checked {
+    counter-increment: price 8;
+}
+
+section:nth-of-type(7) article:nth-of-type(2) input[type=checkbox]:checked {
+    counter-increment: price 10;
+}
+
+section:nth-of-type(7) article:nth-of-type(3) input[type=checkbox]:checked {
+    counter-increment: price 7;
+}
+
+section:nth-of-type(7) article:nth-of-type(4) input[type=checkbox]:checked {
+    counter-increment: price 9;
+}
+
+section:nth-of-type(7) article:nth-of-type(5) input[type=checkbox]:checked {
+    counter-increment: price 8;
+}
+
+section:nth-of-type(7) article:nth-of-type(6) input[type=checkbox]:checked {
+    counter-increment: price 6;
+}
+
+section:nth-of-type(7) article:nth-of-type(7) input[type=checkbox]:checked {
+    counter-increment: price 7;
+}
+
+section:nth-of-type(7) article:nth-of-type(8) input[type=checkbox]:checked {
+    counter-increment: price 8;
+}
+
+/* Custom white background without body */
+body > div:nth-of-type(2) {
+    position: fixed;
+    width: 100%;
+    height: 50px;
+    background-color: hsl(var(--main-color));
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body > div:nth-of-type(2) span {
+    color: var(--secondary-color);
+    filter: invert(100%);
+    font-size: 1.5em;
+}
+
+body > div:nth-of-type(2) span:after {
+    content: '€' counter(price) '.00';
+    margin-left: 5px;
+    animation-name: price-highlight;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes price-highlight {
+    0% {
+        transform: translateY(0);
+    }
+
+    25% {
+        transform: translateY(-5px);
+    }
+
+    50% {
+        transform: translateY(0);
+    }
+
+    75% {
+        transform: translateY(-5px);
+    }
+
+    100% {
+        transform: translateY(0);
     }
 }

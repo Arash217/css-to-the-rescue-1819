@@ -546,30 +546,5 @@ body > div:nth-of-type(2) span {
 body > div:nth-of-type(2) span:after {
     content: '€' counter(price) '.00';
     margin-left: 5px;
-    animation-name: price-highlight;
-    animation-duration: 2s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-}
-
-@keyframes price-highlight {
-    0% {
-        transform: translateY(0);
-    }
-
-    25% {
-        transform: translateY(-5px);
-    }
-
-    50% {
-        transform: translateY(0);
-    }
-
-    75% {
-        transform: translateY(-5px);
-    }
-
-    100% {
-        transform: translateY(0);
-    }
+    font-weight: bold;
 }

@@ -1,0 +1,627 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --main-color: 8, 97%, 65%;
+    --secondary-color: 0, 0%, 0%;
+}
+
+@font-face {
+    font-family: 'TulpenOne';
+    src: url('../fonts/TulpenOne-regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Abel';
+    src: url('../fonts/Abel-regular.ttf') format('truetype');
+}
+
+body {
+    font-family: 'Abel', serif;
+    color: var(--secondary-color);
+    position: relative;
+    counter-reset: price;
+}
+
+/* Custom white background without body */
+body > div:nth-of-type(1) {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: hsl(var(--secondary-color));
+    filter: invert(100%);
+    z-index: -999;
+}
+
+body > header {
+    padding-top: 60px;
+}
+
+header h1,
+header p {
+    font-family: 'TulpenOne', serif;
+    text-align: center;
+}
+
+/* Company name */
+header p {
+    font-size: 2em;
+    opacity: 0.8;
+}
+
+/* Company slogan */
+header h1 {
+    font-size: 4em;
+}
+
+/* Ampersand */
+header h1 span:nth-child(2) {
+    color: hsl(var(--main-color));
+    position: relative;
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(550px, 1fr));
+    max-width: 1200px;
+    grid-gap: 3em;
+    padding: 1.5em;
+    margin: auto;
+}
+
+/* Menu */
+section {
+    padding: 1.5em;
+    position: relative;
+}
+
+section {
+    transition: transform 0.3s;
+}
+
+section:hover {
+    transform: scale(1.05);
+}
+
+section svg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+}
+
+section svg polygon {
+    fill: transparent;
+    stroke: hsla(var(--main-color), .7);
+    stroke-width: .5;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+@keyframes article-wave {
+    0% {
+        transform: rotate(0deg) translateY(0px);
+    }
+
+    20% {
+        transform: rotate(1deg);
+    }
+
+    40% {
+        transform: translateY(3px);
+    }
+
+    60% {
+        transform: rotate(0deg) translateY(7px);
+    }
+
+    80% {
+        transform: rotate(-1deg);
+    }
+
+    100% {
+        transform: rotate(0deg) translateY(0px);
+    }
+}
+
+/* Ribbon */
+section header {
+    height: 75px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5em;
+}
+
+section header div {
+    height: 50px;
+    width: 200px;
+    background-color: hsl(var(--main-color));
+    display: flex;
+    justify-content: center;
+    position: absolute;
+}
+
+section header div:before,
+section header div:after {
+    content: '';
+    z-index: -1;
+    background-color: hsl(var(--main-color));
+    width: 75px;
+    height: 50px;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%, 20% 50%, 0% 0%);
+    position: absolute;
+    bottom: -25px;
+    filter: brightness(95%);
+}
+
+section header div:before {
+    left: -50px;
+}
+
+section header div:after {
+    transform: rotate(180deg);
+    right: -50px;
+}
+
+section header div h2 {
+    font-family: 'TulpenOne', serif;
+    font-size: 2.5em;
+    align-items: center;
+    display: flex;
+}
+
+section header div h2 span {
+    filter: invert(100%);
+}
+
+section header div h2:before,
+section header div h2:after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background-color: hsl(var(--secondary-color));
+    opacity: 0.4;
+    bottom: -25px;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 0%);
+}
+
+section header div h2:before {
+    left: 0;
+}
+
+section header div h2:after {
+    transform: rotate(270deg);
+    right: 0;
+}
+
+/* Waving ribbon animation */
+section > header > div,
+section > header > div:before,
+section > header > div:after {
+    background-image: linear-gradient(70deg,
+    hsla(var(--main-color), 1) 25%,
+    hsla(var(--secondary-color), .2) 50%,
+    hsla(var(--main-color), 1) 55%);
+    background-size: 200%;
+    background-position: right;
+    animation-name: ribbon-wave;
+    animation-duration: 20s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+section > header > div:after {
+    animation-direction: reverse;
+}
+
+@-webkit-keyframes ribbon-wave {
+    0% {
+        background-position: -400px 0, -400px 0, -400px 0, -400px 0;
+    }
+
+    100% {
+        background-position: 800px 0, 800px 0, 800px 0, 800px 0;
+    }
+}
+
+/* Dish */
+section article {
+    margin: 1em;
+    animation-name: article-wave;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    position: relative;
+}
+
+section article:nth-child(2n+1) {
+    animation-delay: 1s;
+}
+
+section article:nth-child(3n+2) {
+    animation-delay: 2s;
+}
+
+section article:nth-child(5n+3) {
+    animation-delay: 3s;
+}
+
+section > article > h3:first-letter,
+section > article > div > p:first-letter {
+    text-transform: uppercase;
+}
+
+/* Dish name */
+section article h3 {
+    color: hsl(var(--main-color));
+}
+
+section article div {
+    display: flex;
+}
+
+/* Dish dotted border */
+section article div span:nth-of-type(1) {
+    border-bottom: 0.05em dotted hsl(var(--secondary-color));
+    flex-grow: 1;
+    margin: 0 0.3em 0.3em 0.3em;
+    position: relative;
+    opacity: 0.6;
+}
+
+/* Dish price */
+section article div span:nth-of-type(2) {
+    justify-content: right;
+    position: relative;
+}
+
+/* Add euro symbol to price */
+section article div span:nth-of-type(2):before {
+    content: '€';
+}
+
+/* Add decimals to price */
+section article div span:nth-of-type(2):after {
+    content: '.00';
+}
+
+/* Shaky animation for expensive dish */
+section:nth-of-type(4) article:nth-of-type(7) h3 {
+    position: relative;
+}
+
+section:nth-of-type(4) article:nth-of-type(7) div {
+    position: relative;
+    color: hsl(var(--main-color));
+}
+
+section:nth-of-type(4) article:nth-of-type(7) div span:nth-of-type(1) {
+    border-color: hsl(var(--main-color));
+}
+
+section:nth-of-type(4) article:nth-of-type(7) div span:nth-of-type(1):before,
+section:nth-of-type(4) article:nth-of-type(7) div span:nth-of-type(1):after {
+    content: '';
+    position: absolute;
+    border-bottom: 0.05em dotted hsl(var(--main-color));
+    width: 100%;
+    height: 0.05em;
+    bottom: 0;
+}
+
+section:nth-of-type(4) article:nth-of-type(7) h3:before,
+section:nth-of-type(4) article:nth-of-type(7) h3:after,
+section:nth-of-type(4) article:nth-of-type(7) div p:before,
+section:nth-of-type(4) article:nth-of-type(7) div p:after,
+section:nth-of-type(4) article:nth-of-type(7) div span:nth-of-type(2):before,
+section:nth-of-type(4) article:nth-of-type(7) div span:nth-of-type(2):after {
+    content: attr(data-glitch);
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: .8;
+}
+
+section:nth-of-type(4) article:nth-of-type(7) h3:before,
+section:nth-of-type(4) article:nth-of-type(7) div p:before,
+section:nth-of-type(4) article:nth-of-type(7) div span:nth-of-type(1):before,
+section:nth-of-type(4) article:nth-of-type(7) div span:nth-of-type(2):before {
+    filter: hue-rotate(292deg);
+    z-index: -1;
+    animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+}
+
+section:nth-of-type(4) article:nth-of-type(7) h3:after,
+section:nth-of-type(4) article:nth-of-type(7) div p:after,
+section:nth-of-type(4) article:nth-of-type(7) div span:nth-of-type(1):after,
+section:nth-of-type(4) article:nth-of-type(7) div span:nth-of-type(2):after {
+    filter: hue-rotate(172deg);
+    z-index: -2;
+    animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite;
+}
+
+@keyframes glitch {
+    0% {
+        transform: translate(0);
+    }
+
+    20% {
+        transform: translate(-5px, 5px);
+    }
+
+    40% {
+        transform: translate(-5px, -5px);
+    }
+
+    60% {
+        transform: translate(5px, 5px);
+    }
+
+    80% {
+        transform: translate(5px, -5px);
+    }
+
+    100% {
+        transform: translate(0);
+    }
+}
+
+section article label {
+    display: inline-block;
+    background-color: hsl(var(--main-color));
+    cursor: pointer;
+    padding: 5px 10px;
+    margin-top: 5px;
+}
+
+section article label:hover {
+    background-color: hsl(var(--main-color));
+    filter: brightness(80%);
+}
+
+section article label span {
+    color: hsl(var(--secondary-color));
+    filter: invert(100%);
+    font-weight: bold;
+}
+
+section article label span:before {
+    content: 'Add';
+}
+
+section article input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}
+
+/* Menu Noshes prices*/
+section:nth-of-type(1) article:nth-of-type(1) input[type=checkbox]:checked ~ span:before {
+    counter-increment: price 8;
+    content: 'Remove';
+}
+
+section:nth-of-type(1) article:nth-of-type(2) input[type=checkbox]:checked ~ span:before {
+    counter-increment: price 13;
+    content: 'Remove';
+}
+
+section:nth-of-type(1) article:nth-of-type(3) input[type=checkbox]:checked ~ span:before {
+    counter-increment: price 13;
+    content: 'Remove';
+}
+
+section:nth-of-type(1) article:nth-of-type(4) input[type=checkbox]:checked ~ span:before {
+    counter-increment: price 10;
+    content: 'Remove';
+}
+
+section:nth-of-type(1) article:nth-of-type(5) input[type=checkbox]:checked ~ span:before {
+    counter-increment: price 9;
+    content: 'Remove';
+}
+
+section:nth-of-type(1) article:nth-of-type(6) input[type=checkbox]:checked ~ span:before {
+    counter-increment: price 10;
+    content: 'Remove';
+}
+
+section:nth-of-type(1) article:nth-of-type(7) input[type=checkbox]:checked ~ span:before {
+    counter-increment: price 12;
+    content: 'Remove';
+}
+
+section:nth-of-type(1) article:nth-of-type(8) input[type=checkbox]:checked ~ span:before {
+    counter-increment: price 7;
+    content: 'Remove';
+}
+
+/* Menu Boards prices*/
+section:nth-of-type(2) article:nth-of-type(1) input[type=checkbox]:checked ~ span:before {
+    counter-increment: price 16;
+    content: 'Remove';
+}
+
+section:nth-of-type(2) article:nth-of-type(2) input[type=checkbox]:checked ~ span:before {
+    counter-increment: price 22;
+    content: 'Remove';
+}
+
+section:nth-of-type(2) article:nth-of-type(3) input[type=checkbox]:checked ~ span:before {
+    counter-increment: price 18;
+    content: 'Remove';
+}
+
+section:nth-of-type(2) article:nth-of-type(4) input[type=checkbox]:checked ~ span:before {
+    counter-increment: price 16;
+    content: 'Remove';
+}
+
+/* Menu Platters prices*/
+section:nth-of-type(3) article:nth-of-type(1) input[type=checkbox]:checked ~ span:before {
+    counter-increment: price 60;
+    content: 'Remove';
+}
+
+section:nth-of-type(3) article:nth-of-type(2) input[type=checkbox]:checked ~ span:before {
+    counter-increment: price 80;
+    content: 'Remove';
+}
+
+section:nth-of-type(3) article:nth-of-type(3) input[type=checkbox]:checked ~ span:before {
+    counter-increment: price 70;
+    content: 'Remove';
+}
+
+section:nth-of-type(3) article:nth-of-type(4) input[type=checkbox]:checked ~ span:before {
+    counter-increment: price 90;
+    content: 'Remove';
+}
+
+/* Menu Eggs prices*/
+section:nth-of-type(4) article:nth-of-type(1) input[type=checkbox]:checked ~ span:before {
+    counter-increment: price 15;
+    content: 'Remove';
+}
+
+section:nth-of-type(4) article:nth-of-type(2) input[type=checkbox]:checked ~ span:before {
+    counter-increment: price 19;
+    content: 'Remove';
+}
+
+section:nth-of-type(4) article:nth-of-type(3) input[type=checkbox]:checked ~ span:before {
+    counter-increment: price 12;
+    content: 'Remove';
+}
+
+section:nth-of-type(4) article:nth-of-type(4) input[type=checkbox]:checked ~ span:before {
+    counter-increment: price 16;
+    content: 'Remove';
+}
+
+section:nth-of-type(4) article:nth-of-type(5) input[type=checkbox]:checked ~ span:before {
+    counter-increment: price 18;
+    content: 'Remove';
+}
+
+section:nth-of-type(4) article:nth-of-type(6) input[type=checkbox]:checked ~ span:before {
+    counter-increment: price 15;
+    content: 'Remove';
+}
+
+section:nth-of-type(4) article:nth-of-type(7) input[type=checkbox]:checked ~ span:before {
+    counter-increment: price 180;
+    content: 'Remove';
+}
+
+/* Menu Soup prices*/
+section:nth-of-type(5) article:nth-of-type(1) input[type=checkbox]:checked ~ span:before {
+    counter-increment: price 8;
+    content: 'Remove';
+}
+
+section:nth-of-type(5) article:nth-of-type(2) input[type=checkbox]:checked ~ span:before {
+    counter-increment: price 8;
+    content: 'Remove';
+}
+
+section:nth-of-type(5) article:nth-of-type(3) input[type=checkbox]:checked ~ span:before {
+    counter-increment: price 8;
+    content: 'Remove';
+}
+
+section:nth-of-type(5) article:nth-of-type(4) input[type=checkbox]:checked ~ span:before {
+    counter-increment: price 10;
+    content: 'Remove';
+}
+
+/* Menu Salads prices*/
+section:nth-of-type(6) article:nth-of-type(1) input[type=checkbox]:checked ~ span:before {
+    counter-increment: price 9;
+    content: 'Remove';
+}
+
+section:nth-of-type(6) article:nth-of-type(2) input[type=checkbox]:checked ~ span:before {
+    counter-increment: price 14;
+    content: 'Remove';
+}
+
+section:nth-of-type(6) article:nth-of-type(3) input[type=checkbox]:checked ~ span:before {
+    counter-increment: price 14;
+    content: 'Remove';
+}
+
+/* Menu Sweet prices*/
+section:nth-of-type(7) article:nth-of-type(1) input[type=checkbox]:checked ~ span:before {
+    counter-increment: price 8;
+    content: 'Remove';
+}
+
+section:nth-of-type(7) article:nth-of-type(2) input[type=checkbox]:checked ~ span:before {
+    counter-increment: price 10;
+    content: 'Remove';
+}
+
+section:nth-of-type(7) article:nth-of-type(3) input[type=checkbox]:checked ~ span:before {
+    counter-increment: price 7;
+    content: 'Remove';
+}
+
+section:nth-of-type(7) article:nth-of-type(4) input[type=checkbox]:checked ~ span:before {
+    counter-increment: price 9;
+    content: 'Remove';
+}
+
+section:nth-of-type(7) article:nth-of-type(5) input[type=checkbox]:checked ~ span:before {
+    counter-increment: price 8;
+    content: 'Remove';
+}
+
+section:nth-of-type(7) article:nth-of-type(6) input[type=checkbox]:checked ~ span:before {
+    counter-increment: price 6;
+    content: 'Remove';
+}
+
+section:nth-of-type(7) article:nth-of-type(7) input[type=checkbox]:checked ~ span:before {
+    counter-increment: price 7;
+    content: 'Remove';
+}
+
+section:nth-of-type(7) article:nth-of-type(8) input[type=checkbox]:checked ~ span:before {
+    counter-increment: price 8;
+    content: 'Remove';
+}
+
+/* Total price container */
+body > div:nth-of-type(2) {
+    position: fixed;
+    width: 100%;
+    height: 50px;
+    background-color: hsl(var(--main-color));
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body > div:nth-of-type(2) span {
+    color: var(--secondary-color);
+    filter: invert(100%);
+    font-size: 1.5em;
+}
+
+body > div:nth-of-type(2) span:after {
+    content: '€' counter(price) '.00';
+    margin-left: 5px;
+    font-weight: bold;
+}

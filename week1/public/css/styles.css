@@ -65,11 +65,12 @@ header h1 span:nth-child(2) {
 
 main {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(550px, 1fr));
-    max-width: 1200px;
+    grid-template-columns: repeat(auto-fill, minmax(min-content, 650px));
+    max-width: 1400px;
     grid-gap: 3em;
     padding: 1.5em;
     margin: auto;
+    justify-content: center;
 }
 
 /* Menu */

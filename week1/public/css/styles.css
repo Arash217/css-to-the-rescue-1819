@@ -37,7 +37,7 @@ body > div:nth-of-type(1) {
 }
 
 body > header {
-    margin-top: 60px;
+    padding-top: 60px;
 }
 
 header h1,
@@ -76,6 +76,14 @@ main {
 section {
     padding: 1.5em;
     position: relative;
+}
+
+section {
+    transition: transform 0.3s;
+}
+
+section:hover {
+    transform: scale(1.05);
 }
 
 section svg {
@@ -125,14 +133,6 @@ section svg polygon {
 }
 
 /* Ribbon */
-section {
-    transition: transform 0.3s;
-}
-
-section:hover {
-    transform: scale(1.05);
-}
-
 section header {
     height: 75px;
     display: flex;
@@ -213,7 +213,7 @@ section > header > div:after {
     hsla(var(--main-color), 1) 55%);
     background-size: 200%;
     background-position: right;
-    /*animation-name: ribbon-wave;*/
+    animation-name: ribbon-wave;
     animation-duration: 20s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
@@ -236,7 +236,7 @@ section > header > div:after {
 /* Dish */
 section article {
     margin: 1em;
-    /*animation-name: article-wave;*/
+    animation-name: article-wave;
     animation-duration: 4s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
@@ -337,7 +337,7 @@ section:nth-of-type(4) article:nth-of-type(7) div span:nth-of-type(1):before,
 section:nth-of-type(4) article:nth-of-type(7) div span:nth-of-type(2):before {
     filter: hue-rotate(292deg);
     z-index: -1;
-    /*animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;*/
+    animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
 }
 
 section:nth-of-type(4) article:nth-of-type(7) h3:after,
@@ -346,7 +346,7 @@ section:nth-of-type(4) article:nth-of-type(7) div span:nth-of-type(1):after,
 section:nth-of-type(4) article:nth-of-type(7) div span:nth-of-type(2):after {
     filter: hue-rotate(172deg);
     z-index: -2;
-    /*animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite;*/
+    animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite;
 }
 
 @keyframes glitch {
